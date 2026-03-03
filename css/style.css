@@ -1426,6 +1426,36 @@ section {
   color: var(--color-accent);
 }
 
+/* Instagram CTA Link */
+.contact-ig-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+  color: #fff;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-base);
+  margin-top: var(--space-md);
+}
+
+.contact-ig-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(225, 48, 108, 0.35);
+}
+
+.contact-ig-link svg {
+  flex-shrink: 0;
+}
+
+.contact-ig-handle {
+  opacity: 0.85;
+  font-weight: 400;
+}
+
 /* Social Links */
 .contact-socials {
   display: flex;
@@ -2063,7 +2093,7 @@ section {
     align-items: center;
   }
 
-  .contact-socials {
+  .contact-ig-link {
     justify-content: center;
   }
 
