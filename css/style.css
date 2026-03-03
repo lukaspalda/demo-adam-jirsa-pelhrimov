@@ -902,7 +902,7 @@ section {
   z-index: 2;
 }
 
-/* Diagonal bottom — drops right */
+/* Diagonal bottom — drops right → into dark process */
 .services::after {
   content: '';
   position: absolute;
@@ -910,7 +910,7 @@ section {
   left: 0;
   right: 0;
   height: calc(var(--diagonal-height) + 2px);
-  background: var(--color-bg-primary);
+  background: #111111;
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
   z-index: 3;
 }
@@ -1065,14 +1065,14 @@ section {
    ========================================================================== */
 
 .process {
-  background: var(--color-bg-primary);
+  background: #111111;
   padding: var(--section-padding);
   padding-top: calc(var(--diagonal-height) + 4rem);
   position: relative;
   z-index: 2;
 }
 
-/* Diagonal bottom — drops left */
+/* Diagonal bottom — drops left → into light gray benefits */
 .process::after {
   content: '';
   position: absolute;
@@ -1083,6 +1083,19 @@ section {
   background: var(--color-bg-secondary);
   clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
   z-index: 3;
+}
+
+/* Dark section text overrides */
+.process .section-label {
+  color: var(--color-accent);
+}
+
+.process .section-title {
+  color: #ffffff;
+}
+
+.process .section-subtitle {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Horizontal Timeline */
@@ -1123,7 +1136,7 @@ section {
   align-items: center;
   justify-content: center;
   margin: 0 auto var(--space-lg);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
   border: 2px solid var(--color-accent);
   border-radius: 50%;
   font-size: var(--font-size-xl);
@@ -1144,11 +1157,12 @@ section {
   font-size: var(--font-size-lg);
   font-weight: 700;
   margin-bottom: var(--space-xs);
+  color: #ffffff;
 }
 
 .process-step-desc {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.55);
   line-height: var(--line-height-normal);
   max-width: 220px;
   margin: 0 auto;
@@ -1167,7 +1181,7 @@ section {
   z-index: 2;
 }
 
-/* Diagonal bottom — drops right */
+/* Diagonal bottom — drops right → into dark transformations */
 .benefits::after {
   content: '';
   position: absolute;
@@ -1175,7 +1189,7 @@ section {
   left: 0;
   right: 0;
   height: calc(var(--diagonal-height) + 2px);
-  background: var(--color-bg-primary);
+  background: #111111;
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
   z-index: 3;
 }
@@ -1242,14 +1256,38 @@ section {
    ========================================================================== */
 
 .transformations {
-  background: var(--color-bg-primary);
+  background: #111111;
   padding: var(--section-padding);
   padding-top: calc(var(--diagonal-height) + 4rem);
   position: relative;
   z-index: 2;
 }
 
-/* No diagonal — flows directly into contact (both white) */
+/* Diagonal bottom — drops left → into white contact */
+.transformations::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: calc(var(--diagonal-height) + 2px);
+  background: var(--color-bg-primary);
+  clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+/* Dark section text overrides */
+.transformations .section-label {
+  color: var(--color-accent);
+}
+
+.transformations .section-title {
+  color: #ffffff;
+}
+
+.transformations .section-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
 
 .transformations-grid {
   display: grid;
@@ -1258,18 +1296,18 @@ section {
 }
 
 .transformation-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .transformation-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(86, 200, 224, 0.2);
-  box-shadow: var(--shadow-card-hover), 0 0 40px var(--color-accent-glow);
+  border-color: rgba(86, 200, 224, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px var(--color-accent-glow);
 }
 
 .transformation-image {
@@ -1312,6 +1350,7 @@ section {
   font-size: var(--font-size-lg);
   font-weight: 700;
   margin-bottom: 0.25rem;
+  color: #ffffff;
 }
 
 .transformation-result {
@@ -1323,7 +1362,7 @@ section {
 
 .transformation-desc {
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.55);
   line-height: var(--line-height-normal);
 }
 
@@ -1333,9 +1372,21 @@ section {
 }
 
 .transformations-cta p {
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: var(--space-lg);
   font-size: var(--font-size-md);
+}
+
+/* Outline button on dark bg */
+.transformations .btn-outline {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.transformations .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* ==========================================================================
@@ -1345,6 +1396,7 @@ section {
 .contact {
   background: var(--color-bg-primary);
   padding: var(--section-padding);
+  padding-top: calc(var(--diagonal-height) + 4rem);
   position: relative;
   z-index: 2;
 }
@@ -1434,7 +1486,7 @@ section {
   padding: var(--space-md) var(--space-lg);
   background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
   color: #fff;
-  border-radius: var(--radius-md);
+  border-radius: var(--border-radius-md);
   text-decoration: none;
   font-weight: 600;
   font-size: var(--font-size-sm);
