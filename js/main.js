@@ -161,6 +161,51 @@
         });
     }
 
+    // --- Service accordion toggle ---
+    var accordionHeaders = document.querySelectorAll('.service-accordion-header');
+    accordionHeaders.forEach(function(header) {
+        header.addEventListener('click', function() {
+            var item = this.closest('.service-accordion-item');
+            var body = item.querySelector('.service-accordion-body');
+            var isActive = item.classList.contains('active');
+
+            // Close all others
+            document.querySelectorAll('.service-accordion-item.active').forEach(function(openItem) {
+                if (openItem !== item) {
+                    openItem.classList.remove('active');
+                    openItem.querySelector('.service-accordion-header').setAttribute('aria-expanded', 'false');
+                    var openBody = openItem.querySelector('.service-accordion-body');
+                    openBody.style.maxHeight = null;
+                }
+            });
+
+            // Toggle current
+            if (isActive) {
+                item.classList.remove('active');
+                this.setAttribute('aria-expanded', 'false');
+                body.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        });
+
+        // Keyboard support (Enter/Space)
+        header.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
+    // Initialize first accordion item
+    var firstAccordion = document.querySelector('.service-accordion-item.active .service-accordion-body');
+    if (firstAccordion) {
+        firstAccordion.style.maxHeight = firstAccordion.scrollHeight + 'px';
+    }
+
     // --- Contact form (demo only) ---
     var form = document.querySelector('.contact-form');
     if (form) {
